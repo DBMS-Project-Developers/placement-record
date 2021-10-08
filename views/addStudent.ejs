@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+        crossorigin="anonymous">
+    <title>Add Student</title>
+</head>
+<body class="d-flex flex-column vh-100">
+    <%- include('./partials/navbar') %>
+
+    <div class="my-4 container d-flex justify-content-center align-items-center">
+        <div class="card shadow">
+            <div class="card-body px-5 py-4">
+                <h5 class="card-title text-center">Add Student</h5>
+                <form action="/addstudent" method="POST">
+                    <div class="row mb-2">
+                        <label class="form-label">Registration No.</label>
+                        <input class="form-control" type="text" id="regno" name="regno" required>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="form-label">Roll No.</label>
+                        <input class="form-control" type="number" id="rollno" name="rollno" required>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="form-label">Name</label>
+                        <input class="form-control" type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="form-label">Class</label>
+                        <select class="form-select" aria-label="Class" name="class">
+                            <option value="BE-1" selected>BE-1</option>
+                            <option value="BE-2">BE-2</option>
+                            <option value="BE-3">BE-3</option>
+                            <option value="BE-4">BE-4</option>
+                            <option value="BE-5">BE-5</option>
+                            <option value="BE-6">BE-6</option>
+                            <option value="BE-7">BE-7</option>
+                            <option value="BE-8">BE-8</option>
+                            <option value="BE-9">BE-9</option>
+                            <option value="BE-10">BE-10</option>
+                            <option value="BE-11">BE-11</option>
+                          </select>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="form-label" for="cgpa">CGPA</label>
+                        <input class="form-control" type="number" name="cgpa" id="cgpa" value="0" min=0 max=10 step=0.01>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="form-label" for="email">Email ID</label>
+                        <input class="form-control" type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="form-label" for="phone">Phone No</label>
+                        <input class="form-control" type="number" id="phone" name="phone" required>
+                    </div>
+                
+                    <div class="row mb-2">
+                        <label class="form-label">Gender</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="M" name="gender" id="mRB" checked>
+                            <label class="form-check-label" for="mRB">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="F" name="gender" id="fRB">
+                            <label class="form-check-label" for="fRB">
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="O" name="gender" id="oRB">
+                            <label class="form-check-label" for="oRB">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="form-label">Gender</label>
+                        <select class="form-select" aria-label="Dept" name="dept">
+                            <option value="BE-1" selected>Computer</option>
+                            <option value="BE-2">IT</option>
+                            <option value="BE-3">EnTC</option>
+                          </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block">Add Student</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+</body>
+</html>
