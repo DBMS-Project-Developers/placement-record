@@ -1,3 +1,7 @@
 module.exports.renderLogin = (req, res) => {
-    res.render("home");
+    res.render("login");
+}
+
+module.exports.renderSignup = (req, res) => {
+    res.render("signup");
 }

@@ -45,7 +45,7 @@
         </style>
     <title>Show Placements</title>
 </head>
-<body class="d-flex flex-column vh-100">
+<body class="d-flex flex-column vh-100" style="background:url(../img/pic_pict.jpg); background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
     <%- include('./partials/navbar') %>
 
     <div class="my-4 container justify-content-center align-items-center">
@@ -53,33 +53,37 @@
             <a href="/addplacement" class="btn btn-success" type="button">Add Placement</a>
             <a href="#" class="btn btn-primary" type="button">Edit/Delete Placement</a>
         </div>
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
-            <table class="table table-bordered table-striped align-middle text-center" id="placementsTable">
-                <thead>
-                    <tr>
-                        <th scope="col">Registration No</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Company</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Placement Date</th>
-                        <th scope="col">Salary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for (let placement of result) {%>
-                        <tr>
-                            <td><%= placement.reg_no %></td>
-                            <td><%= placement.type %></td>
-                            <td><%= placement.company_name %></td>
-                            <td><%= placement.role %></td>
-                            <td><%= placement.location %></td>
-                            <td><%= placement.placement_date %></td>
-                            <td><%= placement.salary %></td>
-                        </tr>
-                    <% } %>
-                </tbody>
-            </table>
+        <div class="card shadow">
+            <div class="card-body px-5 py-4">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
+                    <table class="table table-bordered table-striped align-middle text-center" id="placementsTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Reg No</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Company</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Placement Date</th>
+                                <th scope="col">Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (let placement of result) {%>
+                                <tr>
+                                    <td><%= placement.reg_no %></td>
+                                    <td><%= placement.type %></td>
+                                    <td><%= placement.company_name %></td>
+                                    <td><%= placement.role %></td>
+                                    <td><%= placement.location %></td>
+                                    <td><%= placement.placement_date %></td>
+                                    <td><%= placement.salary %></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 

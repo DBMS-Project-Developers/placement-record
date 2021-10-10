@@ -85,24 +85,29 @@ section .imgBx:before{
     border: 1px solid #607d8b;
     font-size: 16px;
     letter-spacing: 1px;
-    color: #607d8b;
+    /* color: #607d8b; */
     background: transparent;
     border-radius: 30px;
     border-radius: 30px 30px 30px 30px;
 }
 
-.contentBx .formBx .inputBx select:hover{    
+/* .contentBx .formBx .inputBx select:hover{    
     background: #a59b9e;
-}
-.contentBx .formBx .inputBx input[type="submit"]{    
+} */
+.contentBx .formBx .inputBx button[type="submit"]{    
+    width: 100%;
+    padding: 10px 20px;
     color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
     background: #ff4584;
     border-radius: 30px;
     outline: none;
     font-weight: 500;
     cursor: pointer;
 }
-.contentBx .formBx .inputBx input[type="submit"]:hover{    
+.contentBx .formBx .inputBx button[type="submit"]:hover{    
     background: #bd1d52;
 }
 .contentBx .formBx .remember{

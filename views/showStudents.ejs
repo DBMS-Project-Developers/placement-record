@@ -45,7 +45,7 @@
         </style>
     <title>Show Students</title>
 </head>
-<body class="d-flex flex-column vh-100">
+<body class="d-flex flex-column vh-100" style="background:url(../img/pic_pict.jpg); background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
     <%- include('./partials/navbar') %>
 
     <div class="my-4 container justify-content-center align-items-center">
@@ -53,37 +53,41 @@
             <a href="/addstudent" class="btn btn-success" type="button">Add Student</a>
             <a href="#" class="btn btn-primary" type="button">Edit/Delete Student</a>
         </div>
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
-            <table class="table table-bordered table-striped align-middle text-center" id="studentsTable">
-                <thead>
-                    <tr>
-                        <th scope="col">Registration No</th>
-                        <th scope="col">Roll No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Class</th>
-                        <th scope="col">CGPA</th>
-                        <th scope="col">Email ID</th>
-                        <th scope="col">Phone No</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Department</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for (let student of result) {%>
-                        <tr>
-                            <td><%= student.reg_no %></td>
-                            <td><%= student.roll_no %></td>
-                            <td><%= student.name %></td>
-                            <td><%= student.class %></td>
-                            <td><%= student.cgpa %></td>
-                            <td><%= student.email %></td>
-                            <td><%= student.phone_no %></td>
-                            <td><%= student.gender %></td>
-                            <td><%= student.dept %></td>
-                        </tr>
-                    <% } %>
-                </tbody>
-            </table>
+        <div class="card shadow">
+            <div class="card-body px-5 py-4">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
+                    <table class="table table-bordered table-striped align-middle text-center" id="studentsTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Registration No</th>
+                                <th scope="col">Roll No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Class</th>
+                                <th scope="col">CGPA</th>
+                                <th scope="col">Email ID</th>
+                                <th scope="col">Phone No</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (let student of result) {%>
+                                <tr>
+                                    <td><%= student.reg_no %></td>
+                                    <td><%= student.roll_no %></td>
+                                    <td><%= student.name %></td>
+                                    <td><%= student.class %></td>
+                                    <td><%= student.cgpa %></td>
+                                    <td><%= student.email %></td>
+                                    <td><%= student.phone_no %></td>
+                                    <td><%= student.gender %></td>
+                                    <td><%= student.dept %></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 

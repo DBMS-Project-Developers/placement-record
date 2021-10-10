@@ -45,7 +45,7 @@
         </style>
     <title>Show Companies</title>
 </head>
-<body class="d-flex flex-column vh-100">
+<body class="d-flex flex-column vh-100" style="background:url(../img/pic_pict.jpg); background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
     <%- include('./partials/navbar') %>
 
     <div class="my-4 container justify-content-center align-items-center">
@@ -53,33 +53,37 @@
             <a href="/addcompany" class="btn btn-success" type="button">Add Company</a>
             <a href="#" class="btn btn-primary" type="button">Edit/Delete Company</a>
         </div>
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
-            <table class="table table-bordered table-striped align-middle text-center" id="companiesTable">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">CGPA Criteria</th>
-                        <th scope="col">Dept. Criteria</th>
-                        <th scope="col">Contact Name</th>
-                        <th scope="col">Contact Email</th>
-                        <th scope="col">Contact Phone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for (let company of result) {%>
-                        <tr>
-                            <td><%= company.name %></td>
-                            <td><%= company.type %></td>
-                            <td><%= company.cgpa_criteria %></td>
-                            <td><%= company.dept_criteria %></td>
-                            <td><%= company.contact_name %></td>
-                            <td><%= company.contact_email %></td>
-                            <td><%= company.contact_phone %></td>
-                        </tr>
-                    <% } %>
-                </tbody>
-            </table>
+        <div class="card shadow">
+            <div class="card-body px-5 py-4">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
+                    <table class="table table-bordered table-striped align-middle text-center" id="companiesTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">CGPA Criteria</th>
+                                <th scope="col">Dept. Criteria</th>
+                                <th scope="col">Contact Name</th>
+                                <th scope="col">Contact Email</th>
+                                <th scope="col">Contact Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (let company of result) {%>
+                                <tr>
+                                    <td><%= company.name %></td>
+                                    <td><%= company.type %></td>
+                                    <td><%= company.cgpa_criteria %></td>
+                                    <td><%= company.dept_criteria %></td>
+                                    <td><%= company.contact_name %></td>
+                                    <td><%= company.contact_email %></td>
+                                    <td><%= company.contact_phone %></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
