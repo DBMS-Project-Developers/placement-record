@@ -10,6 +10,7 @@ section{
     height: 100vh;
     display: flex;
     /* background-color: blue; */
+    /* background-attachment: ; */
 }
 .imgBx{
     position: relative;
