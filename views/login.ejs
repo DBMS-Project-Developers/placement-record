@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In page</title>
+    <title>Log In</title>
     <link rel="stylesheet" href="css/style.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
@@ -16,27 +16,28 @@
         <div class="contentBx">
             <div class="formBx">
                 <h2>Login</h2>
-                <form action="/signup" method="POST">
+                <form action="/login" method="POST">
                     <div class="inputBx">
                         <span>Username</span>
-                        <input type="text" name="">
+                        <input type="text" name="username" required>
                     </div>
                     <div class="inputBx">
                         <span>Password</span>
-                        <input type="password" name="">
+                        <input type="password" name="password" required>
                     </div>
-                    <div class="inputBx">
+                    <!-- <div class="inputBx">
                         <span>Role</span>
-                        <select name="" id="select">
+                        <select name="role" id="select">
                             <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
                             <option value="tnp">TnP</option>
                           </select>
-                    </div>
+                    </div> -->
                     <div class="inputBx">
                         <button type="submit">Sign In</button>
                     </div>
                     <div class="inputBx">
-                        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+                        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
                     </div>
                 </form>
             </div>

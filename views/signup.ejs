@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up page</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="css/style.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
@@ -16,33 +16,34 @@
         <div class="contentBx">
             <div class="formBx">
                 <h2>Signup</h2>
-                <form action="">
+                <form action="/signup" method="POST">
                     <div class="inputBx">
                         <span>Name</span>
-                        <input type="text" name="">
+                        <input type="text" name="name" required>
                     </div>
                     <div class="inputBx">
                         <span>Email</span>
-                        <input type="email" name="">
+                        <input type="email" name="email" required>
                     </div>
                     <div class="inputBx">
                         <span>Username</span>
-                        <input type="text" name="">
+                        <input type="text" name="username" required>
                     </div>
                     <div class="inputBx">
                         <span>Password</span>
-                        <input type="password" name="">
+                        <input type="password" name="password" required>
                     </div>
                     <div class="inputBx">
                         <span>Role</span>
-                        <select name="" id="signupRole" onchange="showAccessKey()">
+                        <select name="role" id="signupRole" onchange="showAccessKey()">
                             <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
                             <option value="tnp">TnP</option>
                           </select>
                     </div>
                     <div class="inputBx" id="accessDiv" style="display: none;">
                         <span>Access Key</span>
-                        <input type="password" name="">
+                        <input type="password" name="accesskey">
                     </div>
                     <div class="inputBx">
                         <button type="submit">Sign Up</button>

@@ -2,7 +2,7 @@ const express = require("express");
 const {renderAddStudent, addStudent, renderStudents} = require('../controllers/students');
 const {renderAddCompany, addCompany, renderCompanies} = require('../controllers/companies');
 const {renderAddPlacement, addPlacement, renderPlacements} = require('../controllers/placements');
-const {renderLogin, renderSignup} = require('../controllers/users');
+const {renderLogin, renderSignup, login, signup, logout} = require('../controllers/users');
 const {renderHome} = require('../controllers/home');
 
 //set up express router
@@ -23,8 +23,13 @@ router.route("/addplacement")
     .post(addPlacement);
 router.route("/placements").get(renderPlacements);
 
-router.route("/login").get(renderLogin);
-router.route("/signup").get(renderSignup);
+router.route("/login")
+    .get(renderLogin)
+    .post(login);
+router.route("/signup")
+    .get(renderSignup)
+    .post(signup);
+router.route("/logout").get(logout);
 
 router.route("/").get(renderHome);
 

@@ -25,7 +25,7 @@ module.exports.addPlacement = (req, res) => {
         if(err) throw err;
         console.log(result);
         console.log("Placement added");
-        res.redirect("/");
+        res.redirect("/home");
     })
 }
 
