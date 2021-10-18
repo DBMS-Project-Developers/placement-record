@@ -13,40 +13,56 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Students
             </a>
+            <% if(currentUser){ %>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if(currentUser.role == 'tnp'){ %>
               <li><a class="dropdown-item" href="/addstudent">Add Student</a></li>
               <li><a class="dropdown-item" href="#">Edit/Delete Student</a></li>
               <li><hr class="dropdown-divider"></li>
+              <% } %>
               <li><a class="dropdown-item" href="/students">Show Students</a></li>
             </ul>
+            <% } %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Companies
             </a>
+            <% if(currentUser){ %>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if(currentUser.role == 'tnp'){ %>
               <li><a class="dropdown-item" href="/addcompany">Add Company</a></li>
               <li><a class="dropdown-item" href="#">Edit/Delete Company</a></li>
               <li><hr class="dropdown-divider"></li>
+              <% } %>
               <li><a class="dropdown-item" href="/companies">Show Companies</a></li>
             </ul>
+            <% } %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Placements
             </a>
+            <% if(currentUser){ %>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if(currentUser.role == 'tnp'){ %>
               <li><a class="dropdown-item" href="/addplacement">Add Placement</a></li>
               <li><a class="dropdown-item" href="#">Edit/Delete Placement</a></li>
               <li><hr class="dropdown-divider"></li>
+              <% } %>
               <li><a class="dropdown-item" href="/placements">Show Placements</a></li>
             </ul>
+            <% } %>
           </li>
         </ul>
         <div class="d-flex">
+          <% if(!currentUser){ %>
           <a href="/signup" class="btn btn-outline-warning mx-2" type="submit">Signup</a>
           <a href="/login" class="btn btn-outline-success mx-2" type="submit">Login</a>
-          <a href="/login" class="btn btn-outline-danger mx-2" type="submit">Logout</a>
+          <% } %>
+          <% if(currentUser){ %>
+          <a href="/logout" class="btn btn-outline-danger mx-2" type="submit">Logout</a>
+          <% } %>
         </div>
       </div>
     </div>

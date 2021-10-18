@@ -1,7 +1,5 @@
 const db = require('../config/db');
 
-let Role = null;
-
 module.exports.renderLogin = (req, res) => {
     res.render("login");
 }
@@ -18,19 +16,23 @@ module.exports.login = (req, res) => {
         console.log(result);
         if(result.length == 1){
             if(result[0].role == 'tnp'){
-                Role = 'tnp';
                 console.log('tnp logged in');
+                req.session.loggedinUser = true;
+                req.session.user = result[0];
+                req.flash("success", "Successfully logged in");
                 res.redirect('/');
             }
             else{
-                Role = result[0].role;
                 console.log('student/teacher logged in');
+                req.session.loggedinUser = true;
+                req.session.user = result[0];
+                req.flash("success", "Successfully logged in");
                 res.redirect('/');
             }
         }
         else{
-            Role = null;
             console.log("invalid credentials");
+            req.flash("error", "Invalid credentials");
             res.redirect('/login');
         }
     })
@@ -51,13 +53,13 @@ module.exports.signup = (req, res) => {
             if(err) throw err;
             console.log(result);
         })
-        Role = 'tnp';
         console.log("tnp registered");
-        res.redirect('/');
+        req.flash("success", "User signed up");
+        res.redirect('/login');
     }
     else if(req.body.role == 'tnp' && req.body.accesskey != '12345'){
-        Role = null;
         console.log("invalid credentials");
+        req.flash("error", "Invalid credentials");
         res.redirect("/signup");
     }
     else{
@@ -72,16 +74,14 @@ module.exports.signup = (req, res) => {
         db.query(sql, user, (err, result) => {
             if(err) throw err;
             console.log(result);
-            Role = result[0].role;
         })
         console.log("student/teacher signed up");
-        res.redirect('/');
+        req.flash("success", "User signed up");
+        res.redirect('/login');
     }
 }
 
 module.exports.logout = (req, res) => {
-    Role = null;
+    req.session.destroy();
     res.redirect('/login');
 }
-
-module.exports.Role = Role;

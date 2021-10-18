@@ -22,7 +22,8 @@ module.exports.addStudent = (req, res) => {
         if(err) throw err;
         console.log(result);
         console.log("Student added");
-        res.redirect("/");
+        req.flash("success", "Student added");
+        res.redirect("/addstudent");
     })
 }
 
@@ -31,6 +32,8 @@ module.exports.renderStudents = (req, res) => {
     db.query(sql, (err, result) => {
         if(err) throw err;
         console.log(result);
-        res.render("showStudents", {result});
+        res.render("showStudents", {
+            result
+        });
     })
 }

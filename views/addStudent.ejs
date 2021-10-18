@@ -17,6 +17,7 @@
         <div class="card shadow">
             <div class="card-body px-5 py-4">
                 <h5 class="card-title text-center">Add Student</h5>
+                <%- include('./partials/flash') %>
                 <form action="/addstudent" method="POST">
                     <div class="row mb-2">
                         <label class="form-label">Registration No.</label>
@@ -88,7 +89,7 @@
                     </div>
 
                     <div class="row mb-2">
-                        <label class="form-label">Gender</label>
+                        <label class="form-label">Department</label>
                         <select class="form-select" aria-label="Dept" name="dept">
                             <option value="BE-1" selected>Computer</option>
                             <option value="BE-2">IT</option>

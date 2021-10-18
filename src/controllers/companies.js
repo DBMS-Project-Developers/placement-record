@@ -31,7 +31,8 @@ module.exports.addCompany = (req, res) => {
         if(err) throw err;
         console.log(result);
         console.log("Company added");
-        res.redirect("/");
+        req.flash("success", "Company added");
+        res.redirect("/addcompany");
     })
 }
 

@@ -50,8 +50,10 @@
 
     <div class="my-4 container justify-content-center align-items-center">
         <div class="my-4">
+            <% if(currentUser.role == 'tnp'){ %>
             <a href="/addplacement" class="btn btn-success" type="button">Add Placement</a>
             <a href="#" class="btn btn-primary" type="button">Edit/Delete Placement</a>
+            <% } %>
         </div>
         <div class="card shadow">
             <div class="card-body px-5 py-4">
