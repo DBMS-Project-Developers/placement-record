@@ -62,5 +62,19 @@
     </section>
 
     <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript">
+        const buttons=document.querySelectorAll(button);
+        buttons.forEach(btn => {
+            btn.addEventListener('click',function(ee){
+                let x=ee.clientX-ee.target.offsetLeft;
+                let y=ee.clientY-ee.target.offsetTop;
+                
+                let ripples = document.createElement('button');
+                ripples.style.left=x+'px';
+                ripples.style.top=y+'px';
+                this.appendChild(ripples);
+            })
+        })
+    </script>
 </body>
 </html>

@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Poppins',sans-serif; */
 }
 section{
     position: relative;
@@ -101,12 +100,34 @@ section .imgBx:before{
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 1px;
-    background: #ff4584;
+    background: linear-gradient(225deg,#e91e63,#03a9f4);
+    background:#e91e63;
     border-radius: 30px;
     outline: none;
     font-weight: 500;
     cursor: pointer;
 }
+/* 
+span{
+    position: absolute;
+    background: #fff;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    border-radius:50% ;
+    animation: animate 1% linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+} */
 .contentBx .formBx .inputBx button[type="submit"]:hover{    
     background: #bd1d52;
 }
