@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
@@ -49,10 +50,10 @@
     <%- include('./partials/navbar') %>
 
     <div class="my-4 container justify-content-center align-items-center">
+        <%- include('./partials/flash') %>
         <div class="my-4">
             <% if(currentUser.role == 'tnp'){ %>
             <a href="/addcompany" class="btn btn-success" type="button">Add Company</a>
-            <a href="#" class="btn btn-primary" type="button">Edit/Delete Company</a>
             <% } %>
         </div>
         <div class="card shadow">
@@ -68,6 +69,10 @@
                                 <th scope="col">Contact Name</th>
                                 <th scope="col">Contact Email</th>
                                 <th scope="col">Contact Phone</th>
+                                <% if(currentUser.role == 'tnp'){ %>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                                <% } %>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,6 +85,10 @@
                                     <td><%= company.contact_name %></td>
                                     <td><%= company.contact_email %></td>
                                     <td><%= company.contact_phone %></td>
+                                    <% if(currentUser.role == 'tnp'){ %>
+                                    <td><a class="btn btn-primary" href="/companies/<%=company.name%>/edit"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><form action="/companies/<%=company.name%>/delete" method="POST"><button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button></form></td>
+                                    <% } %>
                                 </tr>
                             <% } %>
                         </tbody>

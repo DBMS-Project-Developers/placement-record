@@ -8,35 +8,35 @@
         rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
         crossorigin="anonymous">
-    <title>Add Student</title>
+    <title>Edit Student</title>
 </head>
-<body class="d-flex flex-column vh-100" style="background:url(../img/pic_pict.jpg); background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
+<body class="d-flex flex-column vh-100" style="background:url(/img/pic_pict.jpg); background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
     <%- include('./partials/navbar') %>
 
     <div class="my-4 container d-flex justify-content-center align-items-center">
         <div class="card shadow">
             <div class="card-body px-5 py-4">
-                <h5 class="card-title text-center">Add Student</h5>
+                <h5 class="card-title text-center">Edit Student</h5>
                 <%- include('./partials/flash') %>
-                <form action="/addstudent" method="POST">
+                <form action="/students/<%=result[0].reg_no%>/edit" method="POST">
                     <div class="row mb-2">
                         <label class="form-label">Registration No.</label>
-                        <input class="form-control" type="text" id="regno" name="regno" required>
+                        <input class="form-control" type="text" id="regno" name="regno" value="<%=result[0].reg_no%>" required>
                     </div>
 
                     <div class="row mb-2">
                         <label class="form-label">Roll No.</label>
-                        <input class="form-control" type="number" id="rollno" name="rollno" required>
+                        <input class="form-control" type="number" id="rollno" name="rollno" value="<%=result[0].roll_no%>" required>
                     </div>
 
                     <div class="row mb-2">
                         <label class="form-label">Name</label>
-                        <input class="form-control" type="text" id="name" name="name" required>
+                        <input class="form-control" type="text" id="name" name="name" value="<%=result[0].name%>" required>
                     </div>
 
                     <div class="row mb-2">
                         <label class="form-label">Class</label>
-                        <select class="form-select" aria-label="Class" name="class">
+                        <select class="form-select" aria-label="Class" name="class" value="<%=result[0].class%>">
                             <option value="BE-1">BE-1</option>
                             <option value="BE-2">BE-2</option>
                             <option value="BE-3">BE-3</option>
@@ -53,17 +53,17 @@
 
                     <div class="row mb-2">
                         <label class="form-label" for="cgpa">CGPA</label>
-                        <input class="form-control" type="number" name="cgpa" id="cgpa" value="0" min=0 max=10 step=0.01>
+                        <input class="form-control" type="number" name="cgpa" id="cgpa" value="<%=result[0].cgpa%>" min=0 max=10 step=0.01>
                     </div>
 
                     <div class="row mb-2">
                         <label class="form-label" for="email">Email ID</label>
-                        <input class="form-control" type="email" id="email" name="email" required>
+                        <input class="form-control" type="email" id="email" name="email" value="<%=result[0].email%>" required>
                     </div>
 
                     <div class="row mb-2">
                         <label class="form-label" for="phone">Phone No</label>
-                        <input class="form-control" type="number" id="phone" name="phone" required>
+                        <input class="form-control" type="number" id="phone" name="phone" value="<%=result[0].phone_no%>" required>
                     </div>
                 
                     <div class="row mb-2">
@@ -90,14 +90,14 @@
 
                     <div class="row mb-2">
                         <label class="form-label">Department</label>
-                        <select class="form-select" aria-label="Dept" name="dept">
+                        <select class="form-select" aria-label="Dept" name="dept" value="<%=result[0].dept%>">
                             <option value="Computer">Computer</option>
                             <option value="IT">IT</option>
                             <option value="EnTC">EnTC</option>
-                        </select>
+                          </select>
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-block">Add Student</button>
+                    <button type="submit" class="btn btn-success btn-block">Edit Student</button>
                 </form>
             </div>
         </div>
