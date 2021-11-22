@@ -4,9 +4,12 @@ const {renderCompanies, renderAddCompany, addCompany, renderEditCompany, editCom
 const {renderPlacements, renderAddPlacement, addPlacement, renderEditPlacement, editPlacement, deletePlacement} = require('../controllers/placements');
 const {renderLogin, renderSignup, login, signup, logout} = require('../controllers/users');
 const {renderHome} = require('../controllers/home');
+const {renderFaculty} = require('../controllers/faculty');
 
 //set up express router
 const router = express.Router();
+
+router.route("/faculty").get(renderFaculty);
 
 router.route("/students").get(renderStudents);
 router.route("/addstudent")

@@ -13,11 +13,27 @@
 <body class="d-flex flex-column vh-100" style="background:url(../img/pic_pict.jpg); background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
     <%- include('./partials/navbar') %>
     <%- include('./partials/flash') %>
-    <% if(currentUser){ %>
-        <h1><%= currentUser.username %></h1>
-    <% } else{ %>
-        <h1>Not logged in</h1>
-    <% } %>
+    
+    <div class="my-4 container d-flex justify-content-center align-items-center">
+        <div class="card shadow">
+            <div class="card-body px-5 py-4">
+                <div class="pb-4">
+                    <h5 class="card-title text-center" style="color: rgb(0, 132, 255);">Welcome to</h5>
+                    <h3 class="text-center" style="color: rgb(0, 110, 212);">Placement Record Management System</h3>
+                </div>
+                <div class="pb-4">
+                    <img src="/img/pict.jpg" class="mx-auto d-block">  
+                </div> 
+                <div style="margin-top: 100px;">
+                    <p>By-</p>
+                    <p>Shubham Chaudhary (31376)</p>
+                    <p>Sourav Kotkar (31378)</p>
+                    <p>Yash Rajput (31389)</p>
+                </div>           
+            </div>
+        </div>
+    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
         integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
