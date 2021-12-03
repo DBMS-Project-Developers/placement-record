@@ -8,6 +8,8 @@
         rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
         crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <title>Home</title>
 </head>
 <body class="d-flex flex-column vh-100" style="background:url(../img/pic_pict.jpg); background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
@@ -15,16 +17,28 @@
     <%- include('./partials/flash') %>
     
     <div class="my-4 container d-flex justify-content-center align-items-center">
-        <div class="card shadow">
+        <div class="card shadow" style="width: 1000px;">
             <div class="card-body px-5 py-4">
                 <div class="pb-4">
                     <h5 class="card-title text-center" style="color: rgb(0, 132, 255);">Welcome to</h5>
                     <h3 class="text-center" style="color: rgb(0, 110, 212);">Placement Record Management System</h3>
                 </div>
-                <div class="pb-4">
-                    <img src="/img/pict.jpg" class="mx-auto d-block">  
-                </div> 
-                <div style="margin-top: 100px;">
+
+                <!-- <div class="pb-4">
+                    <img src="https://pict.edu/images/pic.jpg" class="mx-auto d-block">  
+                </div>  -->
+                <div class="pt-4 row">
+                    <div class="pb-4 text-center col" style="height: 500px;">
+                        <p style="font-weight: bold;">Department Statistics</p>
+                        <canvas id="myChart1" width="300px" height="300px">Department Statistics</canvas>
+                    </div>
+                    <div class="pb-4 text-center col" style="height: 500px;">
+                        <p style="font-weight: bold;">Gender Statistics</p>
+                        <canvas id="myChart2" width="300" height="300">Gender Statistics</canvas>
+                    </div>
+                </div>
+                           
+                <div>
                     <p>By-</p>
                     <p>Shubham Chaudhary (31376)</p>
                     <p>Sourav Kotkar (31378)</p>
@@ -34,6 +48,37 @@
         </div>
     </div>
     
+<% 
+    values1 = [0, 0, 0];
+    if(result[0].length != 0){
+        for(let i=0; i<result[0].length; i++){
+            if(result[0][i].dept=='Computer'){
+                values1[0] = result[0][i].cnt;
+            }
+            else if(result[0][i].dept=='IT'){
+                values1[1] = result[0][i].cnt;
+            }
+            else if(result[0][i].dept=='EnTC'){
+                values1[2] = result[0][i].cnt;
+            }
+        }
+    }
+
+    values2 = [0, 0, 0];
+    if(result[1].length != 0){
+        for(let i=0; i<result[1].length; i++){
+            if(result[1][i].gender=='M'){
+                values2[0] = result[1][i].cnt;
+            }
+            else if(result[1][i].gender=='F'){
+                values2[1] = result[1][i].cnt;
+            }
+            else if(result[1][i].gender=='O'){
+                values2[2] = result[1][i].cnt;
+            }
+        }
+    }
+%>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
         integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
@@ -41,5 +86,71 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
         integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
         crossorigin="anonymous"></script>
+
+    <script>
+        var ctx1 = document.getElementById('myChart1').getContext('2d');
+        var myChart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Comp', 'IT', 'EnTC'],
+                datasets: [{
+                    label: 'Department Statistics',
+                    data: [<%= values1 %>],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById('myChart2').getContext('2d');
+        var myChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Male', 'Female', 'Other'],
+                datasets: [{
+                    label: 'Gender Statistics',
+                    data: [<%= values2 %>],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
